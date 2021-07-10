@@ -2,10 +2,10 @@ use codec::{Decode, Encode};
 use criterion::{criterion_group, criterion_main, BatchSize, Criterion};
 use frame_support::Hashable;
 use node_testing::keyring::*;
-use substrate_node_executor::Executor;
-use substrate_node_primitives::{BlockNumber, Hash};
-use substrate_node_runtime::constants::currency::*;
-use substrate_node_runtime::{
+use jambo_node_executor::Executor;
+use jambo_node_primitives::{BlockNumber, Hash};
+use jambo_node_runtime::constants::currency::*;
+use jambo_node_runtime::{
     Block, BuildStorage, Call, CheckedExtrinsic, GenesisConfig, Header, UncheckedExtrinsic,
 };
 use sc_executor::{Externalities, NativeExecutor, RuntimeInfo, WasmExecutionMethod};
@@ -19,13 +19,13 @@ criterion_group!(benches, bench_execute_block);
 criterion_main!(benches);
 
 /// The wasm runtime code.
-const COMPACT_CODE: &[u8] = substrate_node_runtime::WASM_BINARY;
+const COMPACT_CODE: &[u8] = jambo_node_runtime::WASM_BINARY;
 
 const GENESIS_HASH: [u8; 32] = [69u8; 32];
 
-const TRANSACTION_VERSION: u32 = substrate_node_runtime::VERSION.transaction_version;
+const TRANSACTION_VERSION: u32 = jambo_node_runtime::VERSION.transaction_version;
 
-const SPEC_VERSION: u32 = substrate_node_runtime::VERSION.spec_version;
+const SPEC_VERSION: u32 = jambo_node_runtime::VERSION.spec_version;
 
 const HEAP_PAGES: u64 = 20;
 

@@ -33,8 +33,8 @@ use sp_runtime::{
 };
 
 use node_testing::keyring::*;
-use substrate_node_primitives::{Balance, Hash};
-use substrate_node_runtime::{
+use jambo_node_primitives::{Balance, Hash};
+use jambo_node_runtime::{
     constants::currency::*, Balances, Block, Call, CheckedExtrinsic, Event, Header, Runtime,
     System, TransactionByteFee, TransactionPayment, UncheckedExtrinsic,
 };
@@ -48,7 +48,7 @@ use self::common::{sign, *};
 /// The idea here is to pass it as the current runtime code to the executor so the executor will
 /// have to execute provided wasm code instead of the native equivalent. This trick is used to
 /// test code paths that differ between native and wasm versions.
-pub const BLOATY_CODE: &[u8] = substrate_node_runtime::WASM_BINARY_BLOATY;
+pub const BLOATY_CODE: &[u8] = jambo_node_runtime::WASM_BINARY_BLOATY;
 
 /// Default transfer fee
 fn transfer_fee<E: Encode>(extrinsic: &E, fee_multiplier: FixedI128) -> Balance {
@@ -905,7 +905,7 @@ fn should_import_block_with_test_client() {
     let mut client = TestClientBuilder::new().build();
     let block1 = changes_trie_block();
     let block_data = block1.0;
-    let block = substrate_node_primitives::Block::decode(&mut &block_data[..]).unwrap();
+    let block = jambo_node_primitives::Block::decode(&mut &block_data[..]).unwrap();
 
     client.import(BlockOrigin::Own, block).unwrap();
 }

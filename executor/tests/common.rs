@@ -33,9 +33,9 @@ use sp_runtime::{
 use sp_state_machine::TestExternalities as CoreTestExternalities;
 
 use node_testing::keyring::*;
-use substrate_node_executor::Executor;
-use substrate_node_primitives::{BlockNumber, Hash};
-use substrate_node_runtime::{
+use jambo_node_executor::Executor;
+use jambo_node_primitives::{BlockNumber, Hash};
+use jambo_node_runtime::{
     constants::currency::*, Block, BuildStorage, CheckedExtrinsic, Header, Runtime,
     UncheckedExtrinsic,
 };
@@ -66,13 +66,13 @@ impl AppCrypto<MultiSigner, MultiSignature> for TestAuthorityId {
 /// making the binary slimmer. There is a convention to use compact version of the runtime
 /// as canonical. This is why `native_executor_instance` also uses the compact version of the
 /// runtime.
-pub const COMPACT_CODE: &[u8] = substrate_node_runtime::WASM_BINARY;
+pub const COMPACT_CODE: &[u8] = jambo_node_runtime::WASM_BINARY;
 
 pub const GENESIS_HASH: [u8; 32] = [69u8; 32];
 
-pub const SPEC_VERSION: u32 = substrate_node_runtime::VERSION.spec_version;
+pub const SPEC_VERSION: u32 = jambo_node_runtime::VERSION.spec_version;
 
-pub const TRANSACTION_VERSION: u32 = substrate_node_runtime::VERSION.transaction_version;
+pub const TRANSACTION_VERSION: u32 = jambo_node_runtime::VERSION.transaction_version;
 
 pub type TestExternalities<H> = CoreTestExternalities<H, u64>;
 

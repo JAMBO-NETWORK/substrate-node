@@ -5,7 +5,7 @@ pub use sc_executor::NativeExecutor;
 // equivalent wasm code.
 native_executor_instance!(
     pub Executor,
-    substrate_node_runtime::api::dispatch,
-    substrate_node_runtime::native_version,
+    jambo_node_runtime::api::dispatch,
+    jambo_node_runtime::native_version,
     frame_benchmarking::benchmarking::HostFunctions,
 );

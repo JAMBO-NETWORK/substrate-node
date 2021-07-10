@@ -17,7 +17,7 @@
 
 use codec::Decode;
 use frame_system::offchain::{SendSignedTransaction, Signer, SubmitTransaction};
-use substrate_node_runtime::{Executive, Indices, Runtime, UncheckedExtrinsic};
+use jambo_node_runtime::{Executive, Indices, Runtime, UncheckedExtrinsic};
 use sp_application_crypto::AppKey;
 use sp_core::testing::KeyStore;
 use sp_core::{
